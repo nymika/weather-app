@@ -8,7 +8,10 @@ const forecast = require('./utils/forecast')
 const app = express()
 const port = process.env.PORT || 3000
 
-//define paths for Express config
+// console.log(__dirname)
+// console.log(__filename)
+
+// define paths for Express config
 const pulicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname,'../templates/views')
 const partialsPath = path.join(__dirname,'../templates/partials')
@@ -44,7 +47,7 @@ app.get('/help',(req,res) => {
 })
 
 app.get('/weather', (req,res) => {
-    console.log(req.query)
+    //console.log(req.query)
     if(!req.query.address) {
         return res.send({
             error : 'must include address'
@@ -60,14 +63,14 @@ app.get('/weather', (req,res) => {
         forecast(latitude,longitude, (error, forecastData) => {
             if(error) {
                 return res.send({
-                    error : error
+                    error
                 })
             }
-            console.log(forecastData)
+            //console.log(forecastData)
             res.send({
                 address : req.query.address,
-                location : location,
-                latitude : latitude,
+                location,
+                latitude,
                 longitude : longitude,
                 forecastData : forecastData
             })
@@ -91,7 +94,7 @@ app.get('/weather', (req,res) => {
 //     })
 // })
 
-// app.get('/about/*', (req,res) => {
+// app.get('/about', (req,res) => {
 //     res.send('About background article not found!')
 // })
 
