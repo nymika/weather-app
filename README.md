@@ -1,6 +1,6 @@
 # Weather App
 
-A weather application that interacts with the [MapBox](mapbox.com) and [Weather Stack](weatherstack.com) APIs.
+A weather application that interacts with the [MapBox](https://www.mapbox.com/) and [Weather Stack](https://weatherstack.com/) APIs.
 
 
 ## Features
